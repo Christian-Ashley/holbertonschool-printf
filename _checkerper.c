@@ -1,4 +1,4 @@
-#include "main.c"
+#include "main.h"
   
 /**
  * get_function - Find which function should be run based on identifier
@@ -14,13 +14,13 @@ int (*get_function(const char *speci))(va_list)
                 {"s", s_print},
                 {"c", c_print},
                 {"d", d_print},
-                {"i", i_print},
+                {"i", d_print},
                 {NULL, NULL}
         };
 
         for (i = 0; types[i].identifier; i++)
         {
-                if (*speci == types[i].identifier[]0)
+                if (*speci == types[i].identifier[0])
                         return (types[i].print);
         }
         return (NULL);

@@ -47,25 +47,34 @@ int print_number(unsigned int n)
  */
 int d_print(va_list list)
 {
-        int num = va_list(list, int);
+        int num = va_arg(list, int);
         int count = 0;
         int retval;
         unsigned int unsign;
 
         if (num < 0)
         {
-                retvak = _putchar('-');
+                retval = _putchar('-');
                 if (retval == -1)
                         return (1);
-                     else
-                        return (-1);
+                     count += 1;
+		     unsign = -num;
         }
-        else
-                unsign = num;
-        retval = print_number(unsign);
+        else if (num == 0)
+	{
+		retval = _putchar('0');
+		if (retval == 1)
+			return (1);
+		else
+			return (-1);
+	}
+	else
+		unsign = num;
+	retval = print_number(unsign);
 
-        if (reval == 1)
-                count += countDigits(unsign);
-        else count = -1;
-        return (count);
+	if (retval == 1)
+		count += countDigits(unsign);
+	else
+		count = -1;
+	return (count);
 }

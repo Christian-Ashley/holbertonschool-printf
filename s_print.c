@@ -1,3 +1,4 @@
+#include "main.h"
 /**
 * s_print - Print a string
 * @list: The variatic arguments
@@ -7,7 +8,7 @@
 
 int s_print(va_list list)
 {
-        char *str = va_list(list, char *);
+        char *str = va_arg(list, char *);
         int count = 0;
         int retval;
 
@@ -17,7 +18,7 @@ int s_print(va_list list)
         while (*str)
         {
                 retval = _putchar(*str);
-                if (retvak == -1)
+                if (retval == -1)
                         return (-1);
                 count++;
                 str++;

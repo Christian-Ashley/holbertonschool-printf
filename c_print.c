@@ -1,3 +1,4 @@
+#include "main.h"
 /**
  * c_print - prints a single character
  * @list: va_list containinf the char to print as te next element
@@ -7,7 +8,7 @@
 
 int c_print(va_list list)
 {
-        char C = va_list(list, int);
+        char C = va_arg(list, int);
         int count = 0, retval;
 
         retval = _putchar(C);

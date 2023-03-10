@@ -8,46 +8,45 @@
  * Return: the memory with the string
  */
 
-_printf(const char *format, ...)
+int _printf(const char *format, ...)
 {
         int count = 0;
-        int sc = 0;
         va_list list;
         int (*function)(va_list) = NULL;
 
         va_start(list, format);
 
-        while (format[sc] != '\0')
+        while (*format)
         {
-                if (format[sc] == '%' && format[sc++] != '%')
+                if (*format == '%' && *(format + 1) != '%')
                 {
-                        sc++;
-                        function = get_function(format[sc]);
+                        format++;
+                        function = get_function(format);
 
-                        if (format[sc] == '\0')
+                        if (*(format) == '\0')
                                 return (-1);
                         else if (function == NULL)
                         {
-                                _putchar(format[sc--]);
-                                _putchar(format[sc]);
+                                _putchar(*(format - 1));
+                                _putchar(*format);
                                 count += 2;
                         }
                         else
                                 count += function(list);
                 }
-                else if (format[sc] == '%' && format[sc++] == '%')
+                else if (*format == '%' && *(format + 1) == '%')
                 {
-                        sc++;
+                        format++;
                         _putchar('%');
                         count++;
                 }
                 else
                 {
-                        _putchar(format[sc]);
+                        _putchar(*format);
                         count++;
                 }
 
-                sc++;
+                format++;
         }
         va_end(list);
         return (count);
