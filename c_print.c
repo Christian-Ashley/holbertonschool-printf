@@ -8,13 +8,13 @@
 
 int c_print(va_list list)
 {
-        char C = va_arg(list, int);
-        int count = 0, retval;
+	char C = va_arg(list, int);
+	int count = 0, retval;
 
-        retval = _putchar(C);
-        if (retval == -1)
-                return (-1);
-        count++;
+	retval = _putchar(C);
+	if (retval == -1)
+		return (-1);
+	count++;
 
-        return (count);
+	return (count);
 }
