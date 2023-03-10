@@ -20,7 +20,7 @@ int (*get_function(const char *speci))(va_list)
 
         for (i = 0; types[i].identifier; i++)
         {
-                if (*specifier == types[i].identifier[]0)
+                if (*speci == types[i].identifier[]0)
                         return (types[i].print);
         }
         return (NULL);
